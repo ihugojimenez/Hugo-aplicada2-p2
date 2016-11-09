@@ -28,6 +28,17 @@ namespace Parcial2WebApplication1.Properties {
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Parcial2Datab" +
             "ase.mdf;Integrated Security=True;Connect Timeout=30")]
+        public string ok {
+            get {
+                return ((string)(this["ok"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Parcial2Db.md" +
+            "f;Integrated Security=True;Connect Timeout=30")]
         public string Parcial2Db {
             get {
                 return ((string)(this["Parcial2Db"]));

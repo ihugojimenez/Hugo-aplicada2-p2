@@ -115,10 +115,12 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Parcial2Database.mdf" />
-    <Content Include="App_Data\Parcial2Database_log.ldf">
-      <DependentUpon>Parcial2Database.mdf</DependentUpon>
+    <Content Include="App_Data\Parcial2Db.mdf" />
+    <Content Include="App_Data\Parcial2Db_log.ldf">
+      <DependentUpon>Parcial2Db.mdf</DependentUpon>
     </Content>
+    <Content Include="Boostrap\toastr.min.css" />
+    <Content Include="JQuery\toastr.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -127,6 +129,13 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Site1.Master.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site1.Master.designer.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -138,12 +147,19 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Content Include="Site1.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{E2E081E8-7247-4391-B128-FA14C2BD0386}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
