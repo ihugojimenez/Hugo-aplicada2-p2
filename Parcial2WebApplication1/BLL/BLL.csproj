@@ -42,7 +42,6 @@
   <ItemGroup>
     <Compile Include="ClaseMaestra.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Usuarios.cs" />
     <Compile Include="Utilitarios.cs" />
   </ItemGroup>
   <ItemGroup>
