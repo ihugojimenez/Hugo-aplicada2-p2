@@ -13,6 +13,7 @@ namespace Parcial2WebApplication1
     {
         float aux;
         float Monto;
+        int cantidad;
         protected void Page_Load(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
@@ -37,7 +38,7 @@ namespace Parcial2WebApplication1
             Articulos art = new Articulos();
             DataTable dt = (DataTable)ViewState["Detalle"];
             art.Buscar(Convert.ToInt32(ArticulosDropDownList.SelectedValue));
-            aux = Monto + art.Precio * Convert.ToInt32(cantTextBox.Text);
+            aux = art.Precio * Convert.ToInt32(cantTextBox.Text);
             dt.Rows.Add(art.ArticuloId,art.Descripcion, cantTextBox.Text, art.Precio);
             ViewState["Detalle"] = dt;
             ArtGridView.DataSource = (DataTable)ViewState["Detalle"];

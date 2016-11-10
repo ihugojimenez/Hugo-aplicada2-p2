@@ -149,7 +149,7 @@
             <td class="auto-style2">&nbsp;</td>
             <td class="auto-style1">Monto</td>
             <td class="auto-style5">
-                <asp:TextBox ID="MontoTextBox" runat="server"></asp:TextBox>
+                <asp:TextBox ID="MontoTextBox" runat="server" ReadOnly="True"></asp:TextBox>
             </td>
             <td class="auto-style4">&nbsp;</td>
             <td>&nbsp;</td>
