@@ -123,6 +123,7 @@
     <Content Include="Default.aspx" />
     <Content Include="DetalleWebForm.aspx" />
     <Content Include="JQuery\toastr.min.js" />
+    <Content Include="rVentasWebForm.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -145,6 +146,13 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="rVentasWebForm.aspx.cs">
+      <DependentUpon>rVentasWebForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="rVentasWebForm.aspx.designer.cs">
+      <DependentUpon>rVentasWebForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>
