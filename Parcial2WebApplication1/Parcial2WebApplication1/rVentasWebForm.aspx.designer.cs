@@ -31,6 +31,15 @@ namespace Parcial2WebApplication1 {
         protected global::System.Web.UI.WebControls.TextBox FechaTextBox;
         
         /// <summary>
+        /// RequiredFieldValidator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        
+        /// <summary>
         /// ArticulosDropDownList control.
         /// </summary>
         /// <remarks>
@@ -47,6 +56,15 @@ namespace Parcial2WebApplication1 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox cantTextBox;
+        
+        /// <summary>
+        /// RequiredFieldValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
         /// AddButton control.
@@ -67,6 +85,24 @@ namespace Parcial2WebApplication1 {
         protected global::System.Web.UI.WebControls.GridView ArtGridView;
         
         /// <summary>
+        /// ValidationSummary1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
+        
+        /// <summary>
+        /// ValidationSummary2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary2;
+        
+        /// <summary>
         /// MontoTextBox control.
         /// </summary>
         /// <remarks>
@@ -76,6 +112,15 @@ namespace Parcial2WebApplication1 {
         protected global::System.Web.UI.WebControls.TextBox MontoTextBox;
         
         /// <summary>
+        /// NewButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button NewButton;
+        
+        /// <summary>
         /// SaveButton control.
         /// </summary>
         /// <remarks>
@@ -83,5 +128,14 @@ namespace Parcial2WebApplication1 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button SaveButton;
+        
+        /// <summary>
+        /// DeleteButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button DeleteButton;
     }
 }

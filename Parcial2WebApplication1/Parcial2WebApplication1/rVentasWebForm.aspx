@@ -47,11 +47,13 @@
             <td class="auto-style1">ID</td>
             <td class="auto-style5">
                 <asp:TextBox ID="IdTextBox" runat="server" Width="141px"></asp:TextBox>
-            </td>
-            <td class="auto-style4">Fecha</td>
-            <td>
+            &nbsp;&nbsp;&nbsp;&nbsp; Fecha
                 <asp:TextBox ID="FechaTextBox" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="FechaTextBox" ErrorMessage="Favor ingrese la Fecha" ForeColor="Red" ValidationGroup="Save">*</asp:RequiredFieldValidator>
             </td>
+            <td class="auto-style4">&nbsp;</td>
+            <td>
+                &nbsp;</td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
@@ -78,8 +80,9 @@
                 </asp:DropDownList>
 &nbsp;&nbsp;&nbsp; Cantidad
                 <asp:TextBox ID="cantTextBox" runat="server" Width="88px"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="cantTextBox" ErrorMessage="Favor Ingrese la cantidad de articulos" ForeColor="Red" ValidationGroup="Add">*</asp:RequiredFieldValidator>
 &nbsp;
-                <asp:Button ID="AddButton" runat="server" OnClick="AddButton_Click" Text="Agregar" />
+                <asp:Button ID="AddButton" runat="server" OnClick="AddButton_Click" CssClass="btn btn-info" Text="Agregar" ValidationGroup="Add" />
             </td>
             <td class="auto-style4">&nbsp;</td>
             <td>&nbsp;</td>
@@ -119,7 +122,9 @@
                 </asp:GridView>
             </td>
             <td class="auto-style4">&nbsp;</td>
-            <td>&nbsp;</td>
+            <td>
+                <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="Red" ValidationGroup="Add" />
+            </td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
@@ -131,7 +136,9 @@
             <td class="auto-style1">&nbsp;</td>
             <td class="auto-style5">&nbsp;</td>
             <td class="auto-style4">&nbsp;</td>
-            <td>&nbsp;</td>
+            <td>
+                <asp:ValidationSummary ID="ValidationSummary2" runat="server" ForeColor="Red" ValidationGroup="Save" />
+            </td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
@@ -156,7 +163,24 @@
             <td class="auto-style2">&nbsp;</td>
             <td class="auto-style1">&nbsp;</td>
             <td class="auto-style5">
-                <asp:Button ID="SaveButton" runat="server" CssClass="btn btn-success"  Text="Guardar" OnClick="SaveButton_Click" />
+                &nbsp;</td>
+            <td class="auto-style4">&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td class="auto-style2">&nbsp;</td>
+            <td class="auto-style1">&nbsp;</td>
+            <td class="auto-style5">
+                &nbsp;<asp:Button ID="NewButton" runat="server" CssClass="btn btn-warning" Text="Nuevo" Width="97px" OnClick="NewButton_Click" />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:Button ID="SaveButton" runat="server" CssClass="btn btn-success"  Text="Guardar" OnClick="SaveButton_Click" style="margin-left: 4" ValidationGroup="Save" />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:Button ID="DeleteButton" runat="server" CssClass="btn btn-danger" Text="Eliminar" OnClick="DeleteButton_Click" />
             </td>
             <td class="auto-style4">&nbsp;</td>
             <td>&nbsp;</td>

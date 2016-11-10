@@ -16,8 +16,17 @@ namespace BLL
         public float  Monto { get; set; }
         public List<VentasDetalle> Detalle { get; set; }
 
+        public Ventas()
+        {
+            
+            this.Fecha = "";
+            this.Monto = 0.00f;
+            this.Detalle = new List<VentasDetalle>();
+        }
+
         public override bool Insertar()
         {
+            bool retorno;
             int aux;
             object identity;
 
@@ -26,17 +35,18 @@ namespace BLL
                 identity = con.ObtenerValor(string.Format("Insert into Ventas(Fecha, Monto) Values('{0}', {1}); Select @@Identity", this.Fecha, this.Monto));
 
                 int.TryParse(identity.ToString(), out aux);
-
+               
                 foreach(VentasDetalle d in this.Detalle)
                 {
                     con.Ejecutar(string.Format("Insert into VentasDetalle(VentaId, ArticuloId, Cantidad, Precio) Values({0}, {1}, {2}, {3})", aux, d.ArticuloId, d.Cantidad, d.Precio));
                 }
-            }catch(Exception ex)
+                retorno = true;
+            }catch
             {
-                throw ex;
+                retorno = false;
             }
 
-            return aux > 0;
+            return retorno;
         }
 
         public override bool Editar()
@@ -50,7 +60,7 @@ namespace BLL
 
             try
             {
-                retorno = con.Ejecutar(string.Format("Delete from VentasDetalle where VentaId = " + VentaId + ";" + " Delete from Ventas where VentaId =" + VentaId));
+                retorno = con.Ejecutar(string.Format("Delete from VentasDetalle where VentaId = " + this.VentaId + ";" + " Delete from Ventas where VentaId =" + this.VentaId));
             }catch(Exception ex)
             {
                 throw ex;
