@@ -68,6 +68,19 @@ namespace BLL
             return dt.Rows.Count > 0;
         }
 
+        public void EditarExistencia(int id, string signo, int cant)
+        {
+            int aux;
+            try
+            {
+                aux = this.Existencia - cant;
+                con.Ejecutar(string.Format("Update Articulos set Existencia = {0} Where ArticuloId = {1}", aux, id));
+            }catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public override DataTable Listado(string Campos, string Condicion, string Orden)
         {
             string OrdenFinal = "";

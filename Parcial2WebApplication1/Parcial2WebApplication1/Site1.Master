@@ -19,7 +19,7 @@
 
         <div class="text-center">
                 <div class="jumbotron">
-                    <h1>Parcial 2</h1>
+                    <h1>Aplacada 2 - Parcial 2</h1>
                 </div>
                </div>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

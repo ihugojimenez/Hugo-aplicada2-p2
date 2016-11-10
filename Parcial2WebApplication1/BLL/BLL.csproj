@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Articulos.cs" />
     <Compile Include="ClaseMaestra.cs" />
+    <Compile Include="ClaseMonto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilitarios.cs" />
     <Compile Include="Ventas.cs" />
