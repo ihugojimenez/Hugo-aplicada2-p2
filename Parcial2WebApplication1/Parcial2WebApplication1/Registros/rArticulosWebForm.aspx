@@ -124,7 +124,7 @@
             <td class="auto-style7">
                 <ul class="nav nav-tabs">
   <li role="presentation" class="active"><a href="/Registros/rArticulosWebForm.aspx">Registro</a></li>
-  <li role="presentation"><a href="#">Consulta</a></li>
+  <li role="presentation"><a href="/Consultas/cArticuloswebForm.aspx">Consulta</a></li>
 
 </ul>
 
@@ -273,7 +273,7 @@
                 <asp:Button ID="SaveButton" runat="server" CssClass="btn btn-success" Text="Guardar" ValidationGroup="Save" OnClick="SaveButton_Click" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:Button ID="EditButton" runat="server" CssClass="btn btn-info" Text="Modificar" OnClick="EditButton_Click" ValidationGroup="Edit" />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="DeleteButton" runat="server" CssClass="btn btn-danger" Text="Eliminar" ValidationGroup="ID" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="DeleteButton" runat="server" CssClass="btn btn-danger" Text="Eliminar" ValidationGroup="ID" OnClick="DeleteButton_Click" />
             &nbsp;</td>
             <td class="auto-style29"></td>
             <td class="auto-style29"></td>

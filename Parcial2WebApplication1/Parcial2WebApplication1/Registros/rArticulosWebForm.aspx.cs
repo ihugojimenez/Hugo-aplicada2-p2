@@ -76,5 +76,17 @@ namespace Parcial2WebApplication1.Registros
                 Limpiar();
             }
         }
+
+        protected void DeleteButton_Click(object sender, EventArgs e)
+        {
+            Articulos a = new Articulos();
+            a.Buscar(Convert.ToInt32(IdTextBox.Text));
+
+            if(a.Eliminar())
+            {
+                Utilitarios.ShowToastr(this, "Eliminado", "Mensaje", "success");
+                Limpiar();
+            }
+        }
     }
 }
