@@ -122,6 +122,7 @@
     <Content Include="Boostrap\toastr.min.css" />
     <Content Include="Default.aspx" />
     <Content Include="JQuery\toastr.min.js" />
+    <Content Include="Registros\rArticulosWebForm.aspx" />
     <Content Include="Registros\rVentasWebForm.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -138,6 +139,13 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\rArticulosWebForm.aspx.cs">
+      <DependentUpon>rArticulosWebForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registros\rArticulosWebForm.aspx.designer.cs">
+      <DependentUpon>rArticulosWebForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Registros\rVentasWebForm.aspx.cs">
       <DependentUpon>rVentasWebForm.aspx</DependentUpon>
@@ -175,6 +183,10 @@
     <ProjectReference Include="..\BLL\BLL.csproj">
       <Project>{E2E081E8-7247-4391-B128-FA14C2BD0386}</Project>
       <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{E8AEFC25-CEF5-47D3-AD4B-B8F2D1EC43E5}</Project>
+      <Name>DAL</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

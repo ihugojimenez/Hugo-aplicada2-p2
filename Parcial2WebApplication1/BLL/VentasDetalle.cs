@@ -36,7 +36,7 @@ namespace BLL
 
             try
             {
-                dt = con.ObtenerDatos("Select * from VentasDetalle Where ArticuloId = " + id);
+                dt = con.ObtenerDatos("Select * from VentasDetalle Where VentaId = " + id);
                 if(dt.Rows.Count > 0)
                 {
                     this.Id = Id;

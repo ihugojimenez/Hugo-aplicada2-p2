@@ -82,18 +82,25 @@ namespace BLL
                 this.Monto = Convert.ToSingle(dt.Rows[0]["Monto"].ToString());
             }
 
-            det = con.ObtenerDatos(string.Format("Select * from VentasDetalle where VentaId = " + IdBuscado));
-            foreach(DataRow dr in det.Rows)
-            {
-                this.AgregarArticulos(IdBuscado, (int)dr["ArticuloId"], (int)dr["Cantidad"], Convert.ToSingle(dr["Precio"]));
-            }
+            //det = con.ObtenerDatos(string.Format("Select * from VentasDetalle where VentaId = " + IdBuscado));
+            //foreach(DataRow dr in det.Rows)
+            //{
+            //    this.AgregarArticulos(IdBuscado, (int)dr["ArticuloId"], (int)dr["Cantidad"], Convert.ToSingle(dr["Precio"]));
+            //}
 
             return dt.Rows.Count > 0;
         }
 
         public override DataTable Listado(string Campos, string Condicion, string Orden)
         {
-            throw new NotImplementedException();
+            ConexionDb conexion = new ConexionDb();
+            string OrdenFinal = "";
+
+            if (!Orden.Equals(""))
+            {
+                OrdenFinal = " Order by " + Orden;
+            }
+            return conexion.ObtenerDatos("select " + Campos + " from Ventas as V inner join VentasDetalle VD on V.VentaId=VD.VentaId inner join Articulos A on VD.ArticuloId=A.ArticuloId where " + Condicion + " " + OrdenFinal + " --");
         }
 
         public void AgregarArticulos(int VentaId, int ArticuloId, int Cantidad, float Precio)

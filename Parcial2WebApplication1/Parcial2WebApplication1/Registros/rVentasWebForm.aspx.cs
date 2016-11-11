@@ -1,4 +1,5 @@
 ﻿using BLL;
+using DAL;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -11,6 +12,7 @@ namespace Parcial2WebApplication1
 {
     public partial class rVentasWebForm : System.Web.UI.Page
     {
+        ConexionDb con = new ConexionDb();
         ClaseMonto cm = new ClaseMonto();
         float aux;
         protected void Page_Load(object sender, EventArgs e)
@@ -39,6 +41,10 @@ namespace Parcial2WebApplication1
             DataTable dt = (DataTable)ViewState["Detalle"];
             art.Buscar(Convert.ToInt32(ArticulosDropDownList.SelectedValue));
             aux = (float)ViewState["Monto"];
+            if(art.Existencia <= 0)
+            {
+                //Utilitarios.ShowToastr
+            }
             dt.Rows.Add(art.ArticuloId,art.Descripcion, cantTextBox.Text, art.Precio);
             ViewState["Detalle"] = dt;
             ArtGridView.DataSource = (DataTable)ViewState["Detalle"];
@@ -56,23 +62,25 @@ namespace Parcial2WebApplication1
             Articulos a = new Articulos();
             v.Fecha = FechaTextBox.Text;
             v.Monto = Convert.ToSingle(MontoTextBox.Text);
+            int aux = 0;
 
             foreach(GridViewRow g in ArtGridView.Rows)
             {
                 v.AgregarArticulos(v.VentaId, Convert.ToInt32(g.Cells[0].Text), Convert.ToInt32(g.Cells[2].Text), Convert.ToSingle(g.Cells[3].Text));
                 a.Buscar(Convert.ToInt32(g.Cells[0].Text));
-                a.EditarExistencia(Convert.ToInt32(g.Cells[0].Text), "-", Convert.ToInt32(g.Cells[2].Text));
+                a.EditarExistencia(Convert.ToInt32(g.Cells[0].Text),Convert.ToInt32(g.Cells[2].Text), true);
             }
 
         }
 
         protected void LlenaCampos(Ventas v)
         {
-            Articulos a = new Articulos();
+            
             VentasDetalle vd = new VentasDetalle();
             IdTextBox.Text = v.VentaId.ToString();
             FechaTextBox.Text = v.Fecha;
             MontoTextBox.Text = v.Monto.ToString();
+
 
             
 
@@ -129,10 +137,29 @@ namespace Parcial2WebApplication1
         {
 
             Ventas v = new Ventas();
+            Articulos a = new Articulos();
+            VentasDetalle vd = new VentasDetalle();
             int id = 0;
+            int cant = 0;
             int.TryParse(IdTextBox.Text, out id);
             v.VentaId = id;
-            if(v.Eliminar())
+            v.Buscar(id);
+            DataTable dt = new DataTable();
+
+            dt = con.ObtenerDatos(string.Format("Select * from VentasDetalle Where VentaId = " + id));
+            if(dt.Rows.Count > 0)
+            {
+                vd.ArticuloId = (int)dt.Rows[0]["ArticuloId"];
+                vd.Cantidad = (int)dt.Rows[0]["Cantidad"];
+                //a.EditarExistencia(vd.ArticuloId, vd.Cantidad, false);
+            }
+
+            for(int ae =0; ae<= dt.Rows.Count; ae++)
+            {
+                vd.Buscar(id);
+                a.EditarExistencia(vd.ArticuloId, vd.Cantidad, false);
+            }
+            if (v.Eliminar())
             {
                 Utilitarios.ShowToastr(this, "Eliminado con exito", "Mensaje", "success");
                 Limpiar();
@@ -144,7 +171,8 @@ namespace Parcial2WebApplication1
             Ventas v = new Ventas();
 
             v.Buscar(Convert.ToInt32(IdTextBox.Text));
-            Limpiar();
+            ArtGridView.DataSource = v.Listado("V.VentaId as ID, A.Descripcion, VD.Cantidad, VD.Precio", "VentaId = " + IdTextBox.Text, "");
+            //Limpiar();
             LlenaCampos(v);
         }
     }

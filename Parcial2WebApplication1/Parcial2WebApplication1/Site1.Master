@@ -12,17 +12,64 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-</head>
+    
+    <style type="text/css">
+        .auto-style1 {
+            width: 364px;
+        }
+        .auto-style2 {
+            width: 364px;
+            height: 153px;
+        }
+        .auto-style3 {
+            height: 153px;
+        }
+    </style>
+    
+    </head>
 <body>
     <form id="form1" runat="server">
     <div>
 
         <div class="text-center">
                 <div class="jumbotron">
-                    <h1>Aplacada 2 - Parcial 2</h1>
+                    <h1>Aplicada 2 - Parcial 2</h1>
                 </div>
                </div>
+
+        <table class="nav-justified">
+                <tr>
+                    <td class="auto-style2"><ul class="nav nav-pills nav-stacked">
+  <li role="presentation" class="active"><a href="#">Home</a></li>
+  <li role="presentation"><a href="/Registros/rArticulosWebForm.aspx">Articulos</a></li>
+  <li role="presentation"><a href="/Registros/rVentasWebForm.aspx">Ventas</a></li>
+</ul>&nbsp;</td>
+                    <td class="auto-style3"></td>
+                </tr>
+                <tr>
+                    <td class="auto-style1">&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+        
+        
+        
+        
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+
+            
+        
+            
+
+            
+        
+            
+
+            
+        
+            
+
+            
         
         </asp:ContentPlaceHolder>
     </div>

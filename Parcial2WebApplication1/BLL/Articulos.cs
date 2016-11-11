@@ -31,17 +31,49 @@ namespace BLL
 
         public override bool Insertar()
         {
-            throw new NotImplementedException();
+            bool retorno;
+
+            try
+            {
+                retorno = con.Ejecutar(string.Format("Insert into Articulos(Descripcion, Existencia, Precio) Values('{0}', {1}, {2})", this.Descripcion, this.Existencia, this.Precio));
+
+
+            }catch(Exception ex)
+            {
+                throw ex;
+            }
+
+            return retorno;
         }
 
         public override bool Editar()
         {
-            throw new NotImplementedException();
+            bool retorno;
+
+            try
+            {
+                retorno = con.Ejecutar(string.Format("Update Articulos set Descripcion = '{0}', Existencia = {1}, Precio = {2} Where ArticuloId = {3}", this.Descripcion, this.Existencia, this.Precio, this.ArticuloId));
+            }catch(Exception ex)
+            {
+                throw ex;
+            }
+
+            return retorno;
         }
 
         public override bool Eliminar()
         {
-            throw new NotImplementedException();
+            bool retorno;
+
+            try
+            {
+                retorno = con.Ejecutar(string.Format("Delete from Articulos Where ArticuloId = {0}", this.ArticuloId));
+            }catch(Exception ex)
+            {
+                throw ex;
+            }
+
+            return retorno;
         }
 
         public override bool Buscar(int IdBuscado)
@@ -68,12 +100,17 @@ namespace BLL
             return dt.Rows.Count > 0;
         }
 
-        public void EditarExistencia(int id, string signo, int cant)
+        public void EditarExistencia(int id, int cant, bool op)
         {
             int aux;
             try
             {
-                aux = this.Existencia - cant;
+                if (op == true)
+                    aux = this.Existencia - cant;
+                else
+                    aux = this.Existencia + cant;
+
+                
                 con.Ejecutar(string.Format("Update Articulos set Existencia = {0} Where ArticuloId = {1}", aux, id));
             }catch(Exception ex)
             {
