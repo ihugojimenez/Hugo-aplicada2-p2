@@ -120,6 +120,7 @@
       <DependentUpon>Parcial2Db.mdf</DependentUpon>
     </Content>
     <Content Include="Boostrap\toastr.min.css" />
+    <Content Include="Consultas\cArticulosWebForm.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="JQuery\toastr.min.js" />
     <Content Include="Registros\rArticulosWebForm.aspx" />
@@ -127,6 +128,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Consultas\cArticulosWebForm.aspx.cs">
+      <DependentUpon>cArticulosWebForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\cArticulosWebForm.aspx.designer.cs">
+      <DependentUpon>cArticulosWebForm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

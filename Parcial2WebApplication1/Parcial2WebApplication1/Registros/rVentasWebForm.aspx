@@ -233,7 +233,12 @@
             <td class="auto-style6"></td>
             <td class="auto-style7"></td>
             <td class="auto-style57"></td>
-            <td class="auto-style9"></td>
+            <td class="auto-style9">
+            <div class="page-header">
+            <h1>Registro de Ventas</h1>
+            </div>     
+            </td>
+
             <td class="auto-style10"></td>
             <td class="auto-style6"></td>
             <td class="auto-style6"></td>
