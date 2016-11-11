@@ -74,19 +74,29 @@ namespace BLL
             DataTable dt = new DataTable();
             DataTable det = new DataTable();
 
-            dt = con.ObtenerDatos(string.Format("Select * from Ventas Where VentaId = " + IdBuscado));
-            if(dt.Rows.Count > 0)
+            try
             {
-                this.VentaId = IdBuscado;
-                this.Fecha = dt.Rows[0]["Fecha"].ToString();
-                this.Monto = Convert.ToSingle(dt.Rows[0]["Monto"].ToString());
+                dt = con.ObtenerDatos(string.Format("Select * from Ventas Where VentaId = " + IdBuscado));
+                if (dt.Rows.Count > 0)
+                {
+                    this.VentaId = IdBuscado;
+                    this.Fecha = dt.Rows[0]["Fecha"].ToString();
+                    this.Monto = Convert.ToSingle(dt.Rows[0]["Monto"].ToString());
+                    
+                }
+
+                det = con.ObtenerDatos(string.Format("Select * from VentasDetalle where VentaId = " + IdBuscado));
+                foreach (DataRow dr in det.Rows)
+                {
+                    this.AgregarArticulos(IdBuscado, (int)dr["ArticuloId"], (int)dr["Cantidad"], Convert.ToSingle(dr["Precio"]));
+                }
+            }
+            catch(Exception ex)
+            {
+                throw ex;
             }
 
-            //det = con.ObtenerDatos(string.Format("Select * from VentasDetalle where VentaId = " + IdBuscado));
-            //foreach(DataRow dr in det.Rows)
-            //{
-            //    this.AgregarArticulos(IdBuscado, (int)dr["ArticuloId"], (int)dr["Cantidad"], Convert.ToSingle(dr["Precio"]));
-            //}
+            
 
             return dt.Rows.Count > 0;
         }

@@ -305,7 +305,7 @@
                 <asp:TextBox ID="cantTextBox" runat="server" Width="88px"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="cantTextBox" ErrorMessage="Favor Ingrese la cantidad de articulos" ForeColor="Red" ValidationGroup="Add">*</asp:RequiredFieldValidator>
 &nbsp;
-                <asp:Button ID="AddButton" runat="server" OnClick="AddButton_Click" CssClass="btn btn-info" Text="Agregar" ValidationGroup="Add" />
+                <asp:Button ID="AddButton" runat="server" OnClick="AddButton_Click" CssClass="btn btn-default" Text="Agregar" ValidationGroup="Add" />
             </td>
             <td class="auto-style30"></td>
             <td class="auto-style26"></td>
@@ -401,10 +401,11 @@
             <td class="auto-style55">
                 &nbsp;<asp:Button ID="NewButton" runat="server" CssClass="btn btn-warning" Text="Nuevo" Width="97px" OnClick="NewButton_Click" />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Button ID="DeleteButton" runat="server" CssClass="btn btn-danger" Text="Eliminar" OnClick="DeleteButton_Click" ValidationGroup="ID" />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:Button ID="SaveButton" runat="server" CssClass="btn btn-success"  Text="Guardar" OnClick="SaveButton_Click" style="margin-left: 4" ValidationGroup="Save" />
+                &nbsp;&nbsp;&nbsp;<asp:Button ID="UpdateButton" CssClass="btn btn-info" runat="server" Text="Modificar" OnClick="UpdateButton_Click" />
+                &nbsp;&nbsp;
+                <asp:Button ID="DeleteButton" runat="server" CssClass="btn btn-danger" Text="Eliminar" OnClick="DeleteButton_Click" ValidationGroup="ID" />
+            &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </td>
             <td class="auto-style56"></td>
             <td class="auto-style52"></td>

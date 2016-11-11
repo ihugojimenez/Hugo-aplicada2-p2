@@ -41,10 +41,6 @@ namespace Parcial2WebApplication1
             DataTable dt = (DataTable)ViewState["Detalle"];
             art.Buscar(Convert.ToInt32(ArticulosDropDownList.SelectedValue));
             aux = (float)ViewState["Monto"];
-            if(art.Existencia <= 0)
-            {
-                //Utilitarios.ShowToastr
-            }
             dt.Rows.Add(art.ArticuloId,art.Descripcion, cantTextBox.Text, art.Precio);
             ViewState["Detalle"] = dt;
             ArtGridView.DataSource = (DataTable)ViewState["Detalle"];
@@ -62,7 +58,7 @@ namespace Parcial2WebApplication1
             Articulos a = new Articulos();
             v.Fecha = FechaTextBox.Text;
             v.Monto = Convert.ToSingle(MontoTextBox.Text);
-            int aux = 0;
+            
 
             foreach(GridViewRow g in ArtGridView.Rows)
             {
@@ -75,28 +71,27 @@ namespace Parcial2WebApplication1
 
         protected void LlenaCampos(Ventas v)
         {
-            
             VentasDetalle vd = new VentasDetalle();
+            Articulos art = new Articulos();
             IdTextBox.Text = v.VentaId.ToString();
             FechaTextBox.Text = v.Fecha;
             MontoTextBox.Text = v.Monto.ToString();
 
 
-            
-
-            //foreach(var aux in v.Detalle)
-            //{
-            //    DataTable det = (DataTable)ViewState["Detalle"];
-            //    a.Buscar(aux.ArticuloId);
-            //    vd.Buscar(a.ArticuloId);
-            //    det.Rows.Add(a.ArticuloId, a.Descripcion, vd.Cantidad ,a.Precio);
-            //    ViewState["Detalle"] = det;
-            //    ArtGridView.DataSource = det;
-            //    ArtGridView.DataBind();
 
 
-            //}
-              
+            foreach (var a in v.Detalle)
+            {
+                art.Buscar(a.ArticuloId);
+                DataTable det = (DataTable)ViewState["Detalle"];
+                det.Rows.Add(a.ArticuloId,art.Descripcion, a.Cantidad, a.Precio);   
+                ViewState["Detalle"] = det;
+                ArtGridView.DataSource = (DataTable)ViewState["Detalle"];
+                ArtGridView.DataBind();
+
+
+            }
+
 
 
 
@@ -137,28 +132,21 @@ namespace Parcial2WebApplication1
         {
 
             Ventas v = new Ventas();
-            Articulos a = new Articulos();
+            Articulos art = new Articulos();
             VentasDetalle vd = new VentasDetalle();
             int id = 0;
-            int cant = 0;
             int.TryParse(IdTextBox.Text, out id);
-            v.VentaId = id;
             v.Buscar(id);
-            DataTable dt = new DataTable();
 
-            dt = con.ObtenerDatos(string.Format("Select * from VentasDetalle Where VentaId = " + id));
-            if(dt.Rows.Count > 0)
+            foreach (var a in v.Detalle)
             {
-                vd.ArticuloId = (int)dt.Rows[0]["ArticuloId"];
-                vd.Cantidad = (int)dt.Rows[0]["Cantidad"];
-                //a.EditarExistencia(vd.ArticuloId, vd.Cantidad, false);
+                art.Buscar(a.ArticuloId);
+                art.EditarExistencia(art.ArticuloId, a.Cantidad, false);
+
+
             }
 
-            for(int ae =0; ae<= dt.Rows.Count; ae++)
-            {
-                vd.Buscar(id);
-                a.EditarExistencia(vd.ArticuloId, vd.Cantidad, false);
-            }
+            
             if (v.Eliminar())
             {
                 Utilitarios.ShowToastr(this, "Eliminado con exito", "Mensaje", "success");
@@ -169,11 +157,18 @@ namespace Parcial2WebApplication1
         protected void SearchButton_Click(object sender, EventArgs e)
         {
             Ventas v = new Ventas();
-
-            v.Buscar(Convert.ToInt32(IdTextBox.Text));
-            ArtGridView.DataSource = v.Listado("V.VentaId as ID, A.Descripcion, VD.Cantidad, VD.Precio", "VentaId = " + IdTextBox.Text, "");
-            //Limpiar();
+            int id = 0;
+            int.TryParse(IdTextBox.Text, out id);
+            v.Buscar(id);
             LlenaCampos(v);
+
+            
+
+        }
+
+        protected void UpdateButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
