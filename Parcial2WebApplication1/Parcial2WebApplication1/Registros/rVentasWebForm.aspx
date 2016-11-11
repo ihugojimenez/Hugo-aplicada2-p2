@@ -11,7 +11,7 @@
             width: 73px;
         }
         .auto-style5 {
-            width: 483px;
+            width: 543px;
         }
         .auto-style6 {
             height: 26px;
@@ -23,7 +23,7 @@
             padding-left: 0;
         }
         .auto-style9 {
-            width: 483px;
+            width: 543px;
             height: 26px;
         }
         .auto-style10 {
@@ -40,7 +40,7 @@
             padding-left: 0;
         }
         .auto-style14 {
-            width: 483px;
+            width: 543px;
             height: 13px;
         }
         .auto-style15 {
@@ -57,7 +57,7 @@
             padding-left: 0;
         }
         .auto-style19 {
-            width: 483px;
+            width: 543px;
             height: 37px;
         }
         .auto-style20 {
@@ -74,7 +74,7 @@
             padding-left: 0;
         }
         .auto-style24 {
-            width: 483px;
+            width: 543px;
             height: 8px;
         }
         .auto-style25 {
@@ -91,7 +91,7 @@
             padding-left: 0;
         }
         .auto-style29 {
-            width: 483px;
+            width: 543px;
             height: 36px;
         }
         .auto-style30 {
@@ -108,7 +108,7 @@
             padding-left: 0;
         }
         .auto-style34 {
-            width: 483px;
+            width: 543px;
             height: 15px;
         }
         .auto-style35 {
@@ -125,7 +125,7 @@
             padding-left: 0;
         }
         .auto-style39 {
-            width: 483px;
+            width: 543px;
             height: 49px;
         }
         .auto-style40 {
@@ -147,7 +147,7 @@
             padding-left: 0;
         }
         .auto-style47 {
-            width: 483px;
+            width: 543px;
             height: 18px;
         }
         .auto-style48 {
@@ -158,7 +158,7 @@
             height: 216px;
         }
         .auto-style50 {
-            width: 483px;
+            width: 543px;
             height: 216px;
         }
         .auto-style51 {
@@ -175,7 +175,7 @@
             padding-left: 0;
         }
         .auto-style55 {
-            width: 483px;
+            width: 543px;
             height: 42px;
         }
         .auto-style56 {
@@ -265,6 +265,7 @@
             <td class="auto-style19">
                 <asp:TextBox ID="IdTextBox" runat="server" Width="141px"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="IdTextBox" ErrorMessage="Favor ingrese el Id" ForeColor="Red" ValidationGroup="ID">*</asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="IdTextBox" ErrorMessage="Favor ingrese el Id" ForeColor="Red" ValidationGroup="Edit">*</asp:RequiredFieldValidator>
             &nbsp;<asp:Button ID="SearchButton" runat="server" CssClass="btn btn-primary" Text="Buscar" ValidationGroup="ID" OnClick="SearchButton_Click"/>
                 
                 
@@ -273,6 +274,7 @@
 &nbsp; &nbsp;&nbsp;&nbsp; Fecha
                 <asp:TextBox ID="FechaTextBox" runat="server"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="FechaTextBox" ErrorMessage="Favor ingrese la Fecha" ForeColor="Red" ValidationGroup="Save">*</asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="FechaTextBox" ErrorMessage="Favor ingrese la Fecha" ForeColor="Red" ValidationGroup="Edit">*</asp:RequiredFieldValidator>
             </td>
             <td class="auto-style20"></td>
             <td class="auto-style16">
@@ -375,7 +377,9 @@
                 <asp:TextBox ID="MontoTextBox" runat="server" ReadOnly="True"></asp:TextBox>
             </td>
             <td class="auto-style10"></td>
-            <td class="auto-style6"></td>
+            <td class="auto-style6">
+                <asp:ValidationSummary ID="ValidationSummary3" runat="server" ForeColor="Red" ValidationGroup="Edit" />
+            </td>
             <td class="auto-style6"></td>
             <td class="auto-style6"></td>
             <td class="auto-style6"></td>
@@ -402,7 +406,7 @@
                 &nbsp;<asp:Button ID="NewButton" runat="server" CssClass="btn btn-warning" Text="Nuevo" Width="97px" OnClick="NewButton_Click" />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:Button ID="SaveButton" runat="server" CssClass="btn btn-success"  Text="Guardar" OnClick="SaveButton_Click" style="margin-left: 4" ValidationGroup="Save" />
-                &nbsp;&nbsp;&nbsp;<asp:Button ID="UpdateButton" CssClass="btn btn-info" runat="server" Text="Modificar" OnClick="UpdateButton_Click" />
+                &nbsp;&nbsp;&nbsp;<asp:Button ID="UpdateButton" CssClass="btn btn-info" runat="server" Text="Modificar" OnClick="UpdateButton_Click" ValidationGroup="Edit" />
                 &nbsp;&nbsp;
                 <asp:Button ID="DeleteButton" runat="server" CssClass="btn btn-danger" Text="Eliminar" OnClick="DeleteButton_Click" ValidationGroup="ID" />
             &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

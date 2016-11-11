@@ -159,8 +159,15 @@ namespace Parcial2WebApplication1
             Ventas v = new Ventas();
             int id = 0;
             int.TryParse(IdTextBox.Text, out id);
-            v.Buscar(id);
-            LlenaCampos(v);
+            if(v.Buscar(id))
+            {
+                LlenaCampos(v);
+            }else
+            {
+                Utilitarios.ShowToastr(this, "Venta no registrada", "Mensaje", "warning");
+                Limpiar();
+            }
+            
 
             
 
@@ -168,7 +175,13 @@ namespace Parcial2WebApplication1
 
         protected void UpdateButton_Click(object sender, EventArgs e)
         {
-
+            Ventas v = new Ventas();
+            LlenarClase(v);
+            if (v.Editar())
+            {
+                Utilitarios.ShowToastr(this, "Modificado", "Mensaje", "success");
+                Limpiar();
+            }
         }
     }
 }

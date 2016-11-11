@@ -51,7 +51,24 @@ namespace BLL
 
         public override bool Editar()
         {
-            throw new NotImplementedException();
+            bool retorno = false;
+            try
+            {
+                retorno = con.Ejecutar(String.Format("Update Ventas set Fecha='{0}', Monto={1} Where VentaId ={2}", this.Fecha, this.Monto, this.VentaId));
+                if (retorno)
+                {
+                    con.Ejecutar(String.Format("Delete from VentasDetalle Where VentaId= {0}", this.VentaId));
+                    foreach (VentasDetalle var in this.Detalle)
+                    {
+                        con.Ejecutar(string.Format("Insert into VentasDetalle(VentaId, ArticuloId, Cantidad, Precio) Values ({0},{1},{2},{3})", this.VentaId, var.ArticuloId, var.Cantidad, var.Precio));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return retorno;
         }
 
         public override bool Eliminar()
